@@ -52,20 +52,36 @@ function App() {
         setProducts([...products, product])
     }
 
+    const changeBtn = (id) => {
+        const cloneProducts = products.slice()
+        const newProduct = cloneProducts.find((p) => {
+            return p.id === id
+        })
+
+        if (newProduct.isAdd === true) {
+            newProduct.isAdd = false
+        } else {
+            newProduct.isAdd = true
+        }
+        setProducts(cloneProducts)
+    }
+
   return(
     <div>
         <Header />
-        <h1 className='text-3xl text-center font-semibold'>Список необходимых продуктов</h1>
-        <div className='mx-10 min-h-screen'>
-            <ProductForm addProduct={addProduct}/>
-            {products.length === 0 && (
-                <div className='text-center text-xl mt-10'>Список пуст</div>
-            )}
-            {products.length > 0 && products.map((product) => {
-                return (
-                    <Product key={product.id} product={product} deleteProducts={deleteProducts}/>
-                )
-            })}
+        <div className='background bg-cover bg-center py-10'>
+            <h1 className='text-3xl text-center font-semibold'>Список необходимых продуктов</h1>
+            <div className='mx-10 min-h-screen'>
+                <ProductForm addProduct={addProduct}/>
+                {products.length === 0 && (
+                    <div className='text-center text-xl mt-10'>Список пуст</div>
+                )}
+                {products.length > 0 && products.map((product) => {
+                    return (
+                        <Product key={product.id} product={product} deleteProducts={deleteProducts} changeBtn={changeBtn}/>
+                    )
+                })}
+            </div>
         </div>
         <Footer />
     </div>

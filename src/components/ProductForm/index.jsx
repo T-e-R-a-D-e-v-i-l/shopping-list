@@ -2,11 +2,14 @@ import Button from 'components/Button'
 import { useState } from 'react'
 
 function ProductForm ({addProduct}) {
+    
     const [newProduct, setNewProduct] = useState('')
-
+    
     const click = () => {
         const product ={
-            newProduct
+            id:8,
+            name:newProduct,
+            isAdd: false
         }
         addProduct(product)
         setNewProduct('')

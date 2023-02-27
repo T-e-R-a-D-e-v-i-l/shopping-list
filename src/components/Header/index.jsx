@@ -3,7 +3,7 @@
 
 function Header() {
     return (
-        <header className='bg-amber-400 py-10 font-semibold text-xl mb-10'>
+        <header className='bg-amber-400 py-10 font-semibold text-xl'>
             <div className='max-w-screen-lg mx-auto flex justify-between'>
                 <div className="flex gap-6 px-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
