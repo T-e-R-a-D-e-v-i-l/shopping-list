@@ -1,7 +1,7 @@
 import Button from 'components/Button'
 import { useState } from 'react'
 
-let pId = 7
+let pId = 8
 function ProductForm ({addProduct}) {
     const [newProduct, setNewProduct] = useState('')
     const click = () => {
